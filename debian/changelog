@@ -1,3 +1,8 @@
+resource-agents (1:3.9.5-bsw) trusty; urgency=medium
+  * Use version 572c32a from resource agents repository
+
+ -- Brady Wied <support@bswtechconsulting.com>  Wed, 14 May 2014 15:06:00 -0600
+
 resource-agents (1:3.9.3+git20121009-3ubuntu2) trusty; urgency=medium
 
   * debian/patches/configure-order.patch: Move AM_INIT_AUTOMAKE immediately

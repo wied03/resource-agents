@@ -18,7 +18,7 @@ Build-Depends: autoconf,
                pkg-config,
                python,
                xsltproc
-Standards-Version: 3.9.3
+Standards-Version: 3.9.5
 Homepage: https://github.com/ClusterLabs/resource-agents
 XS-Python-Version: current
 
