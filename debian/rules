@@ -29,15 +29,8 @@ override_dh_auto_configure:
 override_dh_auto_install:
 	$(MAKE) install DESTDIR=$(BUILDROOT)/debian/tmp
 
-	# drbd8 ships this itself
-	rm -f $(BUILDROOT)/debian/tmp/usr/share/cluster/drbd.metadata
-	rm -f $(BUILDROOT)/debian/tmp/usr/share/cluster/drbd.sh
-
         # install example configuration file
 	mkdir -p $(BUILDROOT)/debian/tmp/usr/share/doc/ldirectord/examples/
 	cp -ax $(BUILDROOT)/debian/ldirectord.cf.example $(BUILDROOT)/debian/tmp/usr/share/doc/ldirectord/examples/ldirectord.cf
-
-	# install the Asterisk PBX ocf resource agent
-	cp -ax $(BUILDROOT)/debian/patches/ocf-asterisk $(BUILDROOT)/debian/tmp/usr/lib/ocf/resource.d/heartbeat/asterisk
 
 	dh_install --list-missing

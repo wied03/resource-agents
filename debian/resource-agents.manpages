@@ -35,7 +35,6 @@ debian/tmp/usr/share/man/man7/ocf_heartbeat_rsyncd.7
 debian/tmp/usr/share/man/man7/ocf_heartbeat_ids.7
 debian/tmp/usr/share/man/man7/ocf_heartbeat_Xinetd.7
 debian/tmp/usr/share/man/man7/ocf_heartbeat_ClusterMon.7
-debian/tmp/usr/share/man/man7/ocf_heartbeat_drbd.7
 debian/tmp/usr/share/man/man7/ocf_heartbeat_IPaddr2.7
 debian/tmp/usr/share/man/man7/ocf_heartbeat_jboss.7
 debian/tmp/usr/share/man/man7/ocf_heartbeat_SendArp.7

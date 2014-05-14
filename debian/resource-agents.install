@@ -47,7 +47,6 @@ usr/lib/ocf/resource.d/heartbeat/apache
 usr/lib/ocf/resource.d/heartbeat/asterisk
 usr/lib/ocf/resource.d/heartbeat/conntrackd
 usr/lib/ocf/resource.d/heartbeat/db2
-usr/lib/ocf/resource.d/heartbeat/drbd
 usr/lib/ocf/resource.d/heartbeat/eDir88
 usr/lib/ocf/resource.d/heartbeat/ethmonitor
 usr/lib/ocf/resource.d/heartbeat/exportfs
