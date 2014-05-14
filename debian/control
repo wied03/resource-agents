@@ -1,0 +1,75 @@
+Source: resource-agents
+Section: admin
+Priority: optional
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Debian HA Maintainers <debian-ha-maintainers@lists.alioth.debian.org>
+Uploaders: Martin Loschwitz <madkiss@debian.org>, Anibal Monsalve Salazar <anibal@debian.org>, Simon Horman <horms@debian.org>, Frederik Schüler <fs@debian.org>
+Build-Depends: autoconf,
+               automake,
+               autotools-dev,
+               cluster-glue-dev,
+               debhelper (>= 7.0.50~),
+               docbook-xml,
+               docbook-xsl,
+               libcluster-glue-dev,
+               libglib2.0-dev,
+               libnet1-dev,
+               libtool,
+               pkg-config,
+               python,
+               xsltproc
+Standards-Version: 3.9.3
+Homepage: https://github.com/ClusterLabs/resource-agents
+XS-Python-Version: current
+
+Package: resource-agents
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}, cluster-glue, python
+Replaces: cluster-agents (<= 1:1.0.4-0ubuntu2), rgmanager (<= 3.0.12-2ubuntu4)
+Conflicts: cluster-agents (<= 1:1.0.4-0ubuntu2), rgmanager (<= 3.0.12-2ubuntu4)
+Description: Cluster Resource Agents
+ The Cluster Resource Agents are a set of scripts to interface with
+ several services to operate in a High Availability environment
+ for both Pacemaker and rgmanager resource managers.
+
+Package: resource-agents-dev
+Architecture: any
+Depends: resource-agents (= ${binary:Version}), ${misc:Depends}
+Description: Cluster Resource Agents Development files
+ The Cluster Resource Agents are a set of scripts to interface with 
+ several services to operate in a High Availability environment for 
+ both Pacemaker and rgmanager resource managers.
+ .
+ This package contains the development header files.
+
+Package: ldirectord
+Priority: extra
+Architecture: all
+Depends: ipvsadm,
+         libauthen-radius-perl,
+         libcrypt-ssleay-perl,
+         libdbi-perl,
+         libdigest-hmac-perl,
+         libdigest-md5-perl,
+         libmail-pop3client-perl,
+         libmailtools-perl,
+         libnet-dns-perl,
+         libnet-imap-simple-perl,
+         libnet-imap-simple-ssl-perl,
+         libnet-ldap-perl,
+         libnet-perl,
+         libsocket6-perl,
+         libwww-perl,
+         ${misc:Depends},
+         ${perl:Depends}
+Recommends: logrotate, rsyslog | system-log-daemon
+Conflicts: ldirectord (<= 1.0.4-0ubuntu2),
+           libpils0 (<< 2.0.8-3),
+           libstonith0 (<< 2.0.8-3),
+           stonith (<< 2.0.8-3)
+Replaces: ldirectord (<= 1.0.4-0ubuntu2)
+XB-Python-Version: ${python:Versions}
+Description: Monitors virtual services provided by LVS
+ ldirectord is a stand-alone daemon to monitor services of real
+ for virtual services provided by The Linux Virtual Server (LVS).
+ and works with Linux-HA's heartbeat package.

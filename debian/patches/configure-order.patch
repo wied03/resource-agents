@@ -1,0 +1,45 @@
+Description: Fix configure.ac to cope with new autoconf.
+ Recent autoconfs generate a bad configure when AM_INIT_AUTOMAKE is
+ called as late as it was, ending up thinking that the am_aux_dir is pwd
+ at the start of the build. Move it up to under AC_INIT to fix that.
+Author: William Grant <wgrant@ubuntu.com>
+
+Index: resource-agents-3.9.3+git20121009/configure.ac
+===================================================================
+--- resource-agents-3.9.3+git20121009.orig/configure.ac	2012-10-06 05:27:22.000000000 +1000
++++ resource-agents-3.9.3+git20121009/configure.ac	2013-12-16 17:28:42.354909697 +1100
+@@ -22,6 +22,13 @@
+ AC_INIT([resource-agents], 
+ 	m4_esyscmd([make/git-version-gen .tarball-version]),
+ 	[to_be_defined@foobar.org])
++AC_CONFIG_AUX_DIR(.)
++
++dnl 
++dnl AM_INIT_AUTOMAKE([1.11.1 foreign dist-bzip2 dist-xz])
++dnl
++
++AM_INIT_AUTOMAKE([1.10.1 foreign dist-bzip2])
+ 
+ AC_USE_SYSTEM_EXTENSIONS
+ 
+@@ -29,7 +36,6 @@
+ 
+ PKG_FEATURES=""
+ 
+-AC_CONFIG_AUX_DIR(.)
+ AC_CANONICAL_HOST
+ 
+ dnl Where #defines go (e.g. `AC_CHECK_HEADERS' below)
+@@ -56,12 +62,6 @@
+     [  --with-pkg-name=name     Override package name (if you're a packager needing to pretend) ],
+     [ PACKAGE_NAME="$withval" ])
+ 
+-dnl 
+-dnl AM_INIT_AUTOMAKE([1.11.1 foreign dist-bzip2 dist-xz])
+-dnl
+-
+-AM_INIT_AUTOMAKE([1.10.1 foreign dist-bzip2])
+-
+ AC_DEFINE_UNQUOTED(AGENTS_VERSION, "$PACKAGE_VERSION", Current agents version)
+ 
+ CC_IN_CONFIGURE=yes

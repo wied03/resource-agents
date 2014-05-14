@@ -1,0 +1,24 @@
+Index: resource-agents-3.9.2/heartbeat/mysql
+===================================================================
+--- resource-agents-3.9.2.orig/heartbeat/mysql	2011-07-05 15:16:44.338455531 -0400
++++ resource-agents-3.9.2/heartbeat/mysql	2011-07-05 15:16:48.928462263 -0400
+@@ -58,14 +58,14 @@
+ OCF_RESKEY_pid_default="/var/mysql/mysqld.pid"
+ OCF_RESKEY_socket_default="/var/run/mysql/mysql.sock"
+ else
+-OCF_RESKEY_binary_default="/usr/bin/safe_mysqld"
+-OCF_RESKEY_config_default="/etc/my.cnf"
++OCF_RESKEY_binary_default="/usr/bin/mysqld_safe"
++OCF_RESKEY_config_default="/etc/mysql/my.cnf"
+ OCF_RESKEY_datadir_default="/var/lib/mysql"
+ OCF_RESKEY_user_default="mysql"
+ OCF_RESKEY_group_default="mysql"
+-OCF_RESKEY_log_default="/var/log/mysqld.log"
+-OCF_RESKEY_pid_default="/var/run/mysql/mysqld.pid"
+-OCF_RESKEY_socket_default="/var/lib/mysql/mysql.sock"
++OCF_RESKEY_log_default="/var/log/mysql.log"
++OCF_RESKEY_pid_default="/var/run/mysqld/mysqld.pid"
++OCF_RESKEY_socket_default="/var/lib/mysqld/mysqld.sock"
+ fi
+ OCF_RESKEY_client_binary_default="mysql"
+ OCF_RESKEY_test_user_default="root"

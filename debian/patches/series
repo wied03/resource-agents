@@ -1,0 +1,5 @@
+01_docbook_patch.patch
+02_spelling_fixes.patch
+mysql-path.patch
+fix-gethostinfo-v2.patch
+configure-order.patch

@@ -1,0 +1,43 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+# This file was originally written by Joey Hess and Craig Small.
+# As a special exception, when this file is copied by dh-make into a
+# dh-make output file, you may use that output file without restriction.
+# This special exception was added by Craig Small in version 0.37 of dh-make.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+BUILDROOT := $(shell pwd)
+
+get-orig-source:
+	uscan --noconf --force-download --rename --repack --download-current-version --destdir=/
+
+%:
+	dh $@ 
+
+override_dh_auto_configure:
+	dh_testdir
+	[ -f configure ] || sh autogen.sh
+	if [ -e configure -a ! -x configure ]; then chmod u+x configure; fi
+	./configure --sbindir=/usr/sbin --libexecdir=/usr/lib 			\
+		    --with-ocf-root=/usr/lib/ocf --with-initdir=/etc/init.d 	\
+		    --prefix=/usr --sysconfdir=/etc --localstatedir=/var	\
+		    --mandir=/usr/share/man --libdir=/usr/lib --disable-fatal-warnings
+
+override_dh_auto_install:
+	$(MAKE) install DESTDIR=$(BUILDROOT)/debian/tmp
+
+	# drbd8 ships this itself
+	rm -f $(BUILDROOT)/debian/tmp/usr/share/cluster/drbd.metadata
+	rm -f $(BUILDROOT)/debian/tmp/usr/share/cluster/drbd.sh
+
+        # install example configuration file
+	mkdir -p $(BUILDROOT)/debian/tmp/usr/share/doc/ldirectord/examples/
+	cp -ax $(BUILDROOT)/debian/ldirectord.cf.example $(BUILDROOT)/debian/tmp/usr/share/doc/ldirectord/examples/ldirectord.cf
+
+	# install the Asterisk PBX ocf resource agent
+	cp -ax $(BUILDROOT)/debian/patches/ocf-asterisk $(BUILDROOT)/debian/tmp/usr/lib/ocf/resource.d/heartbeat/asterisk
+
+	dh_install --list-missing

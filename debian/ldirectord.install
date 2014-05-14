@@ -1,0 +1,5 @@
+usr/sbin/ldirectord
+etc/ha.d/resource.d/ldirectord 
+etc/logrotate.d/ldirectord 
+etc/init.d/ldirectord
+usr/share/doc/ldirectord/examples/ldirectord.cf

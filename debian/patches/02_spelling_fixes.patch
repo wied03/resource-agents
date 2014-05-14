@@ -1,0 +1,48 @@
+diff -ruN ClusterLabs-resource-agents-dc69db5.orig/heartbeat/LVM ClusterLabs-resource-agents-dc69db5/heartbeat/LVM
+--- ClusterLabs-resource-agents-dc69db5.orig/heartbeat/LVM	2012-10-05 19:27:22.000000000 +0000
++++ ClusterLabs-resource-agents-dc69db5/heartbeat/LVM	2012-10-09 11:23:01.081836865 +0000
+@@ -83,7 +83,7 @@
+ <parameter name="partial_activation" unique="0" required="0">
+ <longdesc lang="en">
+ If set, the volume group will be activated even only partial of the physical
+-volumes available. It helps to set to true, when you are using mirroring
++volumes available. It helps one to set to true, when you are using mirroring
+ logical volumes.
+ </longdesc>
+ <shortdesc lang="en">Activate VG even with partial PV only</shortdesc>
+diff -ruN ClusterLabs-resource-agents-dc69db5.orig/heartbeat/nfsserver ClusterLabs-resource-agents-dc69db5/heartbeat/nfsserver
+--- ClusterLabs-resource-agents-dc69db5.orig/heartbeat/nfsserver	2012-10-05 19:27:22.000000000 +0000
++++ ClusterLabs-resource-agents-dc69db5/heartbeat/nfsserver	2012-10-09 11:23:01.081836865 +0000
+@@ -24,7 +24,7 @@
+ <version>1.0</version>
+ 
+ <longdesc lang="en">
+-Nfsserver helps to manage the Linux nfs server as a failover-able resource in Linux-HA.
++Nfsserver helps one to manage the Linux nfs server as a failover-able resource in Linux-HA.
+ It depends on Linux specific NFS implementation details, so is considered not portable to other platforms yet.
+ </longdesc>
+ 
+diff -ruN ClusterLabs-resource-agents-dc69db5.orig/heartbeat/nginx ClusterLabs-resource-agents-dc69db5/heartbeat/nginx
+--- ClusterLabs-resource-agents-dc69db5.orig/heartbeat/nginx	2012-10-05 19:27:22.000000000 +0000
++++ ClusterLabs-resource-agents-dc69db5/heartbeat/nginx	2012-10-09 11:23:01.081836865 +0000
+@@ -721,7 +721,7 @@
+ Client to use to query to Nginx for level 10 and level 20 tests.
+ If not specified, the RA will try to find one on the system.
+ Currently, wget and curl are supported, with curl being preferred.
+-For example, you can set this paramter to "wget" if you prefer that to curl.
++For example, you can set this parameter to "wget" if you prefer that to curl.
+ </longdesc>
+ <shortdesc lang="en">http client</shortdesc>
+ <content type="string" />
+diff -ruN ClusterLabs-resource-agents-dc69db5.orig/heartbeat/scsi2reservation ClusterLabs-resource-agents-dc69db5/heartbeat/scsi2reservation
+--- ClusterLabs-resource-agents-dc69db5.orig/heartbeat/scsi2reservation	2012-10-05 19:27:22.000000000 +0000
++++ ClusterLabs-resource-agents-dc69db5/heartbeat/scsi2reservation	2012-10-09 11:23:01.081836865 +0000
+@@ -35,7 +35,7 @@
+ <parameter name="scsi_reserve" unique="0" required="0">
+ <longdesc lang="en">
+ The scsi_reserve is a command from scsires package. 
+-It helps to issue SCSI-2 reservation on SCSI devices.
++It helps one to issue SCSI-2 reservation on SCSI devices.
+ </longdesc>
+ <shortdesc lang="en">Manages exclusive access to shared storage media thrugh SCSI-2 reservations</shortdesc>
+ <content type="string" default="/usr/sbin/scsi_reserve" />
