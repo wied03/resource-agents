@@ -1,3 +1,3 @@
 #!/bin/sh
-sudo apt-get build-dep resource-agents
+sudo apt-get -y build-dep resource-agents
 dpkg-buildpackage -rfakeroot -uc -b -tc
